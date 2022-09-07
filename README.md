@@ -23,8 +23,13 @@ More notes:
 
 Pre-installed dependencies:
 
-- Back-end: Express, Nodemon, CORS
-- Front-end: React, Vite, ChakraUI, react-icons
+- Back-end: Express, Nodemon, CORS, MongoDB, Mongoose
+- Front-end: React, Vite, ChakraUI, react-icons, @tanstack/react-query
+
+## .ENV STUFF
+
+For back-end work, create your own .env file with a test database set up on your own MongoDB account.  
+`DATABASE_URL=<your connection string>`
 
 ## More stuff
 
