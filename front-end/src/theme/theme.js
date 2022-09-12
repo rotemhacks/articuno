@@ -1,6 +1,5 @@
 import { extendTheme } from "@chakra-ui/react";
 
-// 2. Extend the theme to include custom colors, fonts, etc
 const colors = {
   brand: {
     Gunmetal: "#1f282f",
@@ -15,4 +14,13 @@ const colors = {
   },
 };
 
-export default extendTheme({ colors });
+// see why this doesn't work later
+const components = {
+  Input: {
+    baseStyle: {
+      focusBorderColor: "brand.BlizzardBlue",
+    },
+  },
+};
+
+export default extendTheme({ colors, components });
