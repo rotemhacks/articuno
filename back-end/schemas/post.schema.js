@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { model, Schema } = mongoose;
-const { commentSchema } = require("./com");
+const { commentSchema } = require("./comment.schema");
 
 const postSchema = new Schema({
   created: { type: Date, default: Date() },
@@ -12,7 +12,7 @@ const postSchema = new Schema({
   nsfw: { type: Boolean, default: false },
 });
 
-postSchema.pre('findOneAndUpdate', function (next) {
+postSchema.pre("findOneAndUpdate", function (next) {
   this.options.runValidators = true;
   next();
 });
