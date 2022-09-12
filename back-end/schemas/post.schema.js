@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { Schema } = mongoose;
+const { model, Schema } = mongoose;
 import commentSchema from "./comment.schema";
 
 const postSchema = new Schema({
@@ -12,5 +12,4 @@ const postSchema = new Schema({
   nsfw: { type: Boolean, default: false },
 });
 
-export const Post =
-  mongoose.models["Post"] || mongoose.model("Post", postSchema);
+module.exports = { Post: model("Post", postSchema) };

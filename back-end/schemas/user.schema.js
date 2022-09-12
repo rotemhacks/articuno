@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { Schema } = mongoose;
+const { model, Schema } = mongoose;
 
 const userSchema = new Schema({
   firstname: { type: String, required: true },
@@ -9,10 +9,10 @@ const userSchema = new Schema({
   bio: String,
   isadmin: { type: Boolean, default: false },
   friends: [String], // friends userIds
+  favorites: [String], // favorite posts
   subscriptions: [String], // favorite tags
   blacklist: [String], // tags to exclude from curated feed
   shownsfw: { type: Boolean, default: false },
 });
 
-export const User =
-  mongoose.models["User"] || mongoose.model("User", userSchema);
+module.exports = { User: model("User", userSchema) };

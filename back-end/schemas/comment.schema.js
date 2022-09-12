@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { Schema } = mongoose;
+const { model, Schema } = mongoose;
 
 export const commentSchema = new Schema({
   created: { type: Date, default: Date() },
@@ -7,5 +7,4 @@ export const commentSchema = new Schema({
   body: { type: String, required: true },
 });
 
-export const Comment =
-  mongoose.models["Comment"] || mongoose.model("Comment", commentSchema);
+module.exports = { Comment: model("Comment", commentSchema) };
