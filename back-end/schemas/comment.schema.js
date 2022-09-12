@@ -7,4 +7,9 @@ export const commentSchema = new Schema({
   body: { type: String, required: true },
 });
 
+commentSchema.pre('findOneAndUpdate', function (next) {
+  this.options.runValidators = true;
+  next();
+});
+
 module.exports = { Comment: model("Comment", commentSchema), commentSchema };

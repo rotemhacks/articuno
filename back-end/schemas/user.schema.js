@@ -15,4 +15,9 @@ const userSchema = new Schema({
   shownsfw: { type: Boolean, default: false },
 });
 
+userSchema.pre("findOneAndUpdate", function (next) {
+  this.options.runValidators = true;
+  next();
+});
+
 module.exports = { User: model("User", userSchema) };

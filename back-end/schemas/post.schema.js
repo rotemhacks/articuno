@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { model, Schema } = mongoose;
-import { commentSchema } from "./comment.schema";
+const { commentSchema } = require("./com");
 
 const postSchema = new Schema({
   created: { type: Date, default: Date() },
@@ -10,6 +10,11 @@ const postSchema = new Schema({
   tags: [String],
   comments: [commentSchema],
   nsfw: { type: Boolean, default: false },
+});
+
+postSchema.pre('findOneAndUpdate', function (next) {
+  this.options.runValidators = true;
+  next();
 });
 
 module.exports = { Post: model("Post", postSchema) };
