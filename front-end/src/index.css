@@ -23,7 +23,7 @@ body {
 }
 
 .navbar {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   background-color: var(--chakra-colors-brand-Aero);
 }
@@ -50,5 +50,6 @@ body {
     border-radius: 1.5rem;
     width: 32rem;
     bottom: 1rem;
+    max-width: 568px;
   }
 }
