@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { model, Schema } = mongoose;
-import commentSchema from "./comment.schema";
+import { commentSchema } from "./comment.schema";
 
 const postSchema = new Schema({
   created: { type: Date, default: Date() },
