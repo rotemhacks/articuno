@@ -1,13 +1,17 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import PostCardButtons from "./PostCardButtons";
 
-export default function PostCard() {
+export default function PostCard({ post }) {
   return (
     <Box>
-      <Image />
+      <Image src={post.url} alt={post.alt} />
+      {/* isLiked - taken from user bookmarks object */}
+      {/* onLike - react-query mutate() */}
       <PostCardButtons isLiked={false} onLike={() => {}} />
-      <Box></Box>
+      <Box>
+        <Text>{post.description}</Text>
+      </Box>
     </Box>
   );
 }

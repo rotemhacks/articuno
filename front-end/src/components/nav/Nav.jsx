@@ -1,4 +1,4 @@
-import { Box, Center, HStack, IconButton, Text } from "@chakra-ui/react";
+import { Box, HStack, IconButton, Text } from "@chakra-ui/react";
 import { GrAdd } from "react-icons/gr";
 import React from "react";
 import { FaHeart, FaHome } from "react-icons/fa";
