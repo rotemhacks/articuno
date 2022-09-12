@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const { Schema } = mongoose;
+const mongoose = require('mongoose');
+const { model, Schema } = mongoose;
 
 const userSchema = new Schema({
   firstname: { type: String, required: true },
@@ -14,5 +14,4 @@ const userSchema = new Schema({
   shownsfw: { type: Boolean, default: false },
 });
 
-export const User =
-  mongoose.models["User"] || mongoose.model("User", userSchema);
+module.exports = { User: model('User', userSchema) };
