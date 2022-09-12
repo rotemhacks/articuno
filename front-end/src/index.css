@@ -33,8 +33,9 @@ body {
   flex-flow: column nowrap;
   align-items: center;
   padding: 0.5rem;
-  min-width: 20%;
+  min-width: 13%;
   cursor: pointer;
+  font-size: 1.3rem;
 }
 
 .navbutton:hover {

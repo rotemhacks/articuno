@@ -4,7 +4,7 @@ import LoginForm from "../components/login/LoginForm";
 import SignupForm from "../components/login/SignupForm";
 
 const Login = () => {
-  const [hasAccount, setHasAccount] = React.useState(false);
+  const [hasAccount, setHasAccount] = React.useState(true);
   return (
     <VStack>
       <Heading>{hasAccount ? "Login" : "Sign Up"}</Heading>

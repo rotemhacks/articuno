@@ -1,7 +1,7 @@
 import { Box, HStack, IconButton, Text } from "@chakra-ui/react";
 import { GrAdd } from "react-icons/gr";
 import React from "react";
-import { FaHeart, FaHome } from "react-icons/fa";
+import { FaHeart, FaHome, FaUserFriends, FaSearch } from "react-icons/fa";
 import { HiHashtag } from "react-icons/hi";
 import { BsPersonFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
@@ -20,11 +20,12 @@ const Nav = () => {
     >
       <Box className="navbutton" onClick={() => navigate("/")}>
         <FaHome />
-        <Text fontSize="xs">Home</Text>
+      </Box>
+      <Box className="navbutton" onClick={() => navigate("/friends")}>
+        <FaUserFriends />
       </Box>
       <Box className="navbutton" onClick={() => navigate("/favorites")}>
         <FaHeart />
-        <Text fontSize="xs">Favorites</Text>
       </Box>
       <Box>
         <IconButton
@@ -37,11 +38,12 @@ const Nav = () => {
       </Box>
       <Box className="navbutton" onClick={() => navigate("/subs")}>
         <HiHashtag />
-        <Text fontSize="xs">Subs</Text>
+      </Box>
+      <Box className="navbutton" onClick={() => navigate("/subs")}>
+        <FaSearch />
       </Box>
       <Box className="navbutton" onClick={() => navigate("/profile")}>
         <BsPersonFill />
-        <Text fontSize="xs">Profile</Text>
       </Box>
     </HStack>
   );
