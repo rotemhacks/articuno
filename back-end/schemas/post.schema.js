@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { model, Schema } = mongoose;
-import commentSchema from './comment.schema';
+import commentSchema from "./comment.schema";
 
 const postSchema = new Schema({
   created: { type: Date, default: Date() },
@@ -12,4 +12,4 @@ const postSchema = new Schema({
   nsfw: { type: Boolean, default: false },
 });
 
-module.exports = { Post: model('Post', postSchema) };
+module.exports = { Post: model("Post", postSchema) };

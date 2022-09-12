@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { model, Schema } = mongoose;
 
 const userSchema = new Schema({
@@ -14,4 +14,4 @@ const userSchema = new Schema({
   shownsfw: { type: Boolean, default: false },
 });
 
-module.exports = { User: model('User', userSchema) };
+module.exports = { User: model("User", userSchema) };

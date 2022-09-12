@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { model, Schema } = mongoose;
 
 export const commentSchema = new Schema({
@@ -7,4 +7,4 @@ export const commentSchema = new Schema({
   body: { type: String, required: true },
 });
 
-module.exports = { Comment: model('Comment', commentSchema) };
+module.exports = { Comment: model("Comment", commentSchema) };
