@@ -5,14 +5,12 @@ import { Box, VStack } from "@chakra-ui/react";
 
 function App() {
   return (
-    <VStack display="flex" alignItems="center">
+    <VStack display="flex" alignItems="center" position="relative" minH="100vh">
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
       <Box height="2rem" />
-      <Box position="fixed" bottom={0} width="lg">
-        <Nav />
-      </Box>
+      <Nav />
     </VStack>
   );
 }

@@ -23,15 +23,32 @@ body {
 }
 
 .navbar {
-  margin: 0 0 5px 0;
+  position: absolute;
+  bottom: 0;
+  background-color: var(--chakra-colors-brand-Aero);
 }
 
 .navbutton {
-  margin: 0 0 5px 0;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   padding: 0.5rem;
   min-width: 20%;
   cursor: pointer;
+}
+
+.navbutton:hover {
+  color: var(--chakra-colors-brand-LightCyan);
+}
+
+.navbutton:active {
+  transform: scale(0.95);
+}
+
+@media only screen and (min-width: 568px) {
+  .navbar {
+    border-radius: 1.5rem;
+    width: 32rem;
+    bottom: 1rem;
+  }
 }
