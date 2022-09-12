@@ -9,6 +9,7 @@ const userSchema = new Schema({
   bio: String,
   isadmin: { type: Boolean, default: false },
   friends: [String], // friends userIds
+  favorites: [String] // favorite posts
   subscriptions: [String], // favorite tags
   blacklist: [String], // tags to exclude from curated feed
   shownsfw: { type: Boolean, default: false },
