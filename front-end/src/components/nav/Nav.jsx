@@ -1,13 +1,15 @@
-import { Box, HStack, IconButton, Text } from "@chakra-ui/react";
+import { Avatar, Box, HStack, IconButton, Text } from "@chakra-ui/react";
 import { GrAdd } from "react-icons/gr";
 import React from "react";
 import { FaHeart, FaHome, FaUserFriends, FaSearch } from "react-icons/fa";
 import { HiHashtag } from "react-icons/hi";
 import { BsPersonFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import { ActiveUser } from "../../contexts/contexts";
 
 const Nav = () => {
   const navigate = useNavigate();
+  const { user } = React.useContext(ActiveUser);
 
   return (
     // classes "navbar" + "navbutton" - set in index.css
@@ -43,7 +45,16 @@ const Nav = () => {
         <FaSearch />
       </Box>
       <Box className="navbutton" onClick={() => navigate("/profile")}>
-        <BsPersonFill />
+        {user ? (
+          <Avatar
+            src={user.avatar || ""}
+            name={`${user.firstname} ${user.lastname || ""}`}
+            bg="brand.Gunmetal"
+            size="sm"
+          />
+        ) : (
+          <BsPersonFill />
+        )}
       </Box>
     </HStack>
   );
