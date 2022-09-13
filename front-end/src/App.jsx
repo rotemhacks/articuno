@@ -25,13 +25,13 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/search" element={<Search />} />
-        {/* <Route element={<UserRoute />}> */}
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="/friends" element={<Friends />} />
-        <Route path="/subs" element={<Subs />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/upload" element={<Upload />} />
-        {/* </Route> */}
+        <Route element={<UserRoute />}>
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/friends" element={<Friends />} />
+          <Route path="/subs" element={<Subs />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/upload" element={<Upload />} />
+        </Route>
       </Routes>
       <Box height="2rem" />
       <Nav />
