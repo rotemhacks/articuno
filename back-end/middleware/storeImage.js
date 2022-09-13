@@ -17,10 +17,10 @@ module.exports = async function (req, res, next) {
         }
 
         req.body.url = result.secure_url;
+        console.log(req.body.url);
+        next();
       })
       .end(req.file.buffer);
-
-    next();
   } catch (err) {
     err.status ??= 400;
     next(err);

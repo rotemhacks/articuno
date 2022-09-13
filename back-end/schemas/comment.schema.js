@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { model, Schema } = mongoose;
 
-export const commentSchema = new Schema(
+const commentSchema = new Schema(
   {
     author: { type: String, required: true }, // author userId
     body: { type: String, required: true },
