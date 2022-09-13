@@ -13,9 +13,11 @@ import {
 import { useMutation } from "@tanstack/react-query";
 import axios from "../../utils/axiosClient";
 import { ActiveUser } from "../../contexts/contexts";
+import { useNavigate } from "react-router-dom";
 
 const SignupForm = () => {
   const { setUser } = React.useContext(ActiveUser);
+  const navigate = useNavigate();
   const {
     handleSubmit,
     register,
