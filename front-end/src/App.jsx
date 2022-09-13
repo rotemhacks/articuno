@@ -4,6 +4,11 @@ import Nav from "./components/nav/Nav";
 import { Box, VStack } from "@chakra-ui/react";
 import UserRoute from "./components/routes/UserRoute";
 import Login from "./pages/Login";
+import Favorites from "./pages/Favorites";
+import Friends from "./pages/Friends";
+import Subs from "./pages/Subs";
+import Profile from "./pages/Profile";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -18,12 +23,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/search" />
+        <Route path="/search" element={<Search />} />
         <Route element={<UserRoute />}>
-          <Route path="/favorites" />
-          <Route path="/friends" />
-          <Route path="/subs" />
-          <Route path="/profile" />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/friends" element={<Friends />} />
+          <Route path="/subs" element={<Subs />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/upload" />
         </Route>
       </Routes>
