@@ -9,19 +9,21 @@ const Profile = () => {
   return (
     <Box>
       <Heading>Profile</Heading>
-      <SimpleGrid
-        columns={[1, null, 2]}
-        spacing={["2rem", null, "1rem"]}
-        width={["90%", null, "60%"]}
-      >
-        <Avatar
-          src={user.picture}
-          name={`${user.firstname} ${user.lastname}`}
-        />
-        <VStack>
-          {/* Name, email, bio, showing NSFW, subscribed tags, blacklisted tags */}
-        </VStack>
-      </SimpleGrid>
+      {user && (
+        <SimpleGrid
+          columns={[1, null, 2]}
+          spacing={["2rem", null, "1rem"]}
+          width={["90%", null, "60%"]}
+        >
+          <Avatar
+            src={user.picture}
+            name={`${user.firstname} ${user.lastname}`}
+          />
+          <VStack>
+            {/* Name, email, bio, showing NSFW, subscribed tags, blacklisted tags */}
+          </VStack>
+        </SimpleGrid>
+      )}
     </Box>
   );
 };

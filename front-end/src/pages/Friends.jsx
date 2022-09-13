@@ -1,5 +1,9 @@
 import React from "react";
+import { useQuery } from "@tanstack/react-query";
+import { ActiveUser } from "../contexts/contexts";
 import axios from "../utils/axiosClient";
+import { Heading, Spinner, Text, VStack } from "@chakra-ui/react";
+import PostList from "../components/posts/PostList";
 
 const Friends = () => {
   const { user } = React.useContext(ActiveUser);
@@ -21,7 +25,7 @@ const Friends = () => {
 
   return (
     <VStack>
-      <Heading>Favorite posts</Heading>
+      <Heading>Friends feed</Heading>
       {isLoading && <Spinner />}
       {isSuccess && posts.length > 0 && <PostList posts={posts} />}
       {posts && posts.length === 0 && (
