@@ -5,10 +5,6 @@ cloudinary.config({
 });
 
 module.exports = async function (req, res, next) {
-  const options = {
-    folder: `${req.user._id}/images`,
-  };
-
   try {
     const result = await cloudinary.uploader
       .upload_stream({ folder: `${req.user._id}/images` }, (error, result) => {
@@ -17,7 +13,6 @@ module.exports = async function (req, res, next) {
         }
 
         req.body.url = result.secure_url;
-        console.log(req.body.url);
         next();
       })
       .end(req.file.buffer);
