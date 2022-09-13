@@ -12,7 +12,7 @@ module.exports = async function (req, res, next) {
     const user = new User({
       firstname,
       email,
-      password: await hash(req.body.password, 10),
+      password: await hash(password, 10),
     });
 
     await user.save();

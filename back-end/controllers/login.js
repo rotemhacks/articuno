@@ -1,6 +1,7 @@
-const { User } = require("../schemas/user.schema");
 const { compare } = require("bcrypt");
 const { sign } = require("jsonwebtoken");
+
+const { User } = require("../schemas/user.schema");
 
 module.exports = async function (req, res, next) {
   const { email, password } = req.body;

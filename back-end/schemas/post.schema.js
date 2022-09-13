@@ -4,6 +4,7 @@ const { commentSchema } = require("./comment.schema");
 
 const postSchema = new Schema(
   {
+    author: { type: String },
     url: { type: String, required: true }, // img src
     description: String,
     tags: [String],

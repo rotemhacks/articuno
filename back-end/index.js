@@ -1,12 +1,14 @@
-const express = require("express");
-const errorHandler = require("./middleware/errorHandler");
-var cors = require("cors");
 require("dotenv").config();
+const express = require("express");
+var cors = require("cors");
+const cookieParser = require("cookie-parser");
+
 const connectDB = require("./utils/connectDB");
 const login = require("./routes/login");
 const logout = require("./routes/logout");
 const signup = require("./routes/signup");
-const cookieParser = require("cookie-parser");
+const images = require("./routes/images");
+const errorHandler = require("./middleware/errorHandler");
 
 const PORT = process.env.PORT || 2501;
 
@@ -19,6 +21,7 @@ app.use(express.json());
 app.use("/signup", signup);
 app.use("/login", login);
 app.use("/logout", logout);
+app.use("/images", images);
 app.use(errorHandler);
 
 connectDB((err) => {
