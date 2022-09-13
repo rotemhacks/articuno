@@ -41,7 +41,7 @@ const Nav = () => {
       <Box className="navbutton" onClick={() => navigate("/subs")}>
         <HiHashtag />
       </Box>
-      <Box className="navbutton" onClick={() => navigate("/subs")}>
+      <Box className="navbutton" onClick={() => navigate("/search")}>
         <FaSearch />
       </Box>
       <Box className="navbutton" onClick={() => navigate("/profile")}>
