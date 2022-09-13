@@ -6,6 +6,7 @@ const connectDB = require("./utils/connectDB");
 const login = require("./routes/login");
 const logout = require("./routes/logout");
 const signup = require("./routes/signup");
+const cookieParser = require("cookie-parser");
 
 const PORT = process.env.PORT || 2501;
 
