@@ -11,6 +11,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { FaSearch } from "react-icons/fa";
+import axios from "../../utils/axiosClient";
 
 const Search = () => {
   const [posts, setPosts] = React.useState();

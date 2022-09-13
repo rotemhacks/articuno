@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "../../utils/axiosClient";
 
 const Favorites = () => {
   const { user } = React.useContext(ActiveUser);
