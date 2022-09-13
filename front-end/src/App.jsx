@@ -10,6 +10,8 @@ import Subs from "./pages/Subs";
 import Profile from "./pages/Profile";
 import Search from "./pages/Search";
 import Upload from "./pages/Upload";
+import SinglePost from "./pages/SinglePost";
+import EditProfile from "./pages/EditProfile";
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
           <Route path="/subs" element={<Subs />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/upload" element={<Upload />} />
+          <Route path="/posts/:id" element={<SinglePost />} />
+          <Route path="/profile/edit/:id" element={<EditProfile />} />
         </Route>
       </Routes>
       <Box height="2rem" />
