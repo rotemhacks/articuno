@@ -1,6 +1,7 @@
 import { Avatar, Box, Heading, SimpleGrid, VStack } from "@chakra-ui/react";
 import React from "react";
 import { ActiveUser } from "../contexts/contexts";
+import axios from "../utils/axiosClient";
 
 const Profile = () => {
   const { user } = React.useContext(ActiveUser);

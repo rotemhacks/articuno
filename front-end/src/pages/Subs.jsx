@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "../../utils/axiosClient";
+import axios from "../utils/axiosClient";
 
 const Subs = () => {
   const { user } = React.useContext(ActiveUser);
