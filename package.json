@@ -3,5 +3,8 @@
   "workspaces": [
     "front-end",
     "back-end"
-  ]
+  ],
+  "dependencies": {
+    "mongodb": "^4.9.1"
+  }
 }
