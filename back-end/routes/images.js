@@ -4,7 +4,7 @@ const upload = multer();
 
 const verifyUser = require("../middleware/verifyUser");
 const storeImage = require("../middleware/storeImage");
-const { addPost, getPost } = require("../controllers/posts");
+const { addPost, getPost } = require("../controllers/post");
 
 const router = express.Router();
 
