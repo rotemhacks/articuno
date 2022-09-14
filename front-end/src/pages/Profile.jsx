@@ -10,6 +10,7 @@ import {
 import React from "react";
 import { ActiveUser } from "../contexts/contexts";
 import axios from "../utils/axiosClient";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const { user, setUser } = React.useContext(ActiveUser);
@@ -41,6 +42,11 @@ const Profile = () => {
               {/* Name, email, bio, showing NSFW, subscribed tags, blacklisted tags */}
             </VStack>
           </SimpleGrid>
+          <Box color="white" borderRadius={7} py={2} px={3} bg={"brand.LapisLazuli"} >
+            <Link to="/profile/edit/:id" bg="brand.LapisLazuli">
+              Edit Profile
+            </Link>
+          </Box>
           <Button onClick={handleLogout}>Logout</Button>
         </>
       )}
