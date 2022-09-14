@@ -59,3 +59,18 @@ exports.removeFromBlacklist = async function (req, res, next) {
     next(err);
   }
 };
+
+exports.updateUser = async function (req, res, next) {
+  const { password, isadmin, ...newData } = req.body;
+
+  try {
+    await User.findByIdAndUpdate(req.user._id, {
+      $set: newData,
+    });
+
+    res.send({ tag });
+  } catch (err) {
+    err.status ??= 400;
+    next(err);
+  }
+};

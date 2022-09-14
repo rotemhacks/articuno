@@ -6,7 +6,7 @@ module.exports = async function (req, res, next) {
 
   try {
     const userId = verify(accessToken, process.env.SECRET).id;
-    const user = await User.findById(userId);
+    const { password, ...user } = (await User.findById(userId)) ?? {};
 
     if (!user) {
       throw {
