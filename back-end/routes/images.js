@@ -4,10 +4,11 @@ const upload = multer();
 
 const verifyUser = require("../middleware/verifyUser");
 const storeImage = require("../middleware/storeImage");
-const { addPost } = require("../controllers/posts");
+const { addPost, getPost } = require("../controllers/post");
 
 const router = express.Router();
 
-router.post("/upload", verifyUser, upload.single("image"), storeImage, addPost);
+router.post("/", verifyUser, upload.single("image"), storeImage, addPost);
+router.get("/:id", getPost);
 
 module.exports = router;
