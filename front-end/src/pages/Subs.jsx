@@ -14,22 +14,23 @@ const Subs = () => {
     ["subs"],
     async () => {
       // check routes
-      const result = await axios.post("/images/", user.subscriptions);
+      const result = await axios.get("/images/subs");
       return result.data;
     },
     {
       onSuccess: (data) => {
         setPosts(data);
       },
+      enabled: user.subscriptions.length > 0,
     }
   );
 
   return (
     <VStack>
       <Heading>Subscribed tags</Heading>
-      {isLoading && <Spinner />}
+      {user && user.subscriptions > 0 && isLoading && <Spinner />}
       {isSuccess && posts.length > 0 && <PostList posts={posts} />}
-      {posts && posts.length === 0 && (
+      {user && user.subscriptions.length === 0 && (
         <>
           <Text as="i">You aren't subscribed to any tags.</Text>
           <Text

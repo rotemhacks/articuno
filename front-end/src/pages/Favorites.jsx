@@ -12,22 +12,23 @@ const Favorites = () => {
     ["favorites"],
     async () => {
       // check routes
-      const result = await axios.post("/images/", user.favorites);
+      const result = await axios.get("/images/favs");
       return result.data;
     },
     {
       onSuccess: (data) => {
         setPosts(data);
       },
+      enabled: user.favorites.length > 0,
     }
   );
 
   return (
     <VStack>
       <Heading>Favorite posts</Heading>
-      {isLoading && <Spinner />}
+      {user && user.favorites > 0 && isLoading && <Spinner />}
       {isSuccess && <PostList posts={posts} />}
-      {posts && posts.length === 0 && (
+      {user && user.favorites.length === 0 && (
         <>
           <Text as="i">You haven't saved any posts</Text>
           <Text

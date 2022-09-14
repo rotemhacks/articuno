@@ -13,22 +13,23 @@ const Friends = () => {
     ["friends"],
     async () => {
       // check routes
-      const result = await axios.post("/images/", user.friends);
+      const result = await axios.get("/images/friends");
       return result.data;
     },
     {
       onSuccess: (data) => {
         setPosts(data);
       },
+      enabled: user.friends.length > 0,
     }
   );
 
   return (
     <VStack>
       <Heading>Friends feed</Heading>
-      {isLoading && <Spinner />}
+      {user && user.friends > 0 && isLoading && <Spinner />}
       {isSuccess && posts.length > 0 && <PostList posts={posts} />}
-      {posts && posts.length === 0 && (
+      {user && user.friends.length === 0 && (
         <Text as="i">You aren't following anyone.</Text>
       )}
     </VStack>

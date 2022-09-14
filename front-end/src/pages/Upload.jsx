@@ -30,7 +30,7 @@ const Upload = () => {
 
   const { mutate } = useMutation(
     (data) => {
-      return axios.post("/images/upload", data);
+      return axios.post("/images", data);
     },
     {
       onSuccess: (response) => {
