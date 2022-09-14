@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require('body-parser');
 require("dotenv").config();
 const connectDB = require("./utils/connectDB");
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
@@ -11,6 +12,7 @@ let image = "";
 const PORT = process.env.PORT || 3000;
 
 const app = express();
+app.use(bodyParser.json());
 
 connectDB((err) => {
   if (err) {
@@ -35,9 +37,9 @@ app.get('/image/:id', async (req, res)=>{
 app.post('/image/:id', async (req, res)=>{
   let id = req.params.id;
   const collection = client.db("artstuff").collection(req.params.id);
-  //let comment = req.body.comment;
-  let comment = "such a great job";
-  var myquery = { text: comment};
+  let comment = req.body;
+  console.log(comment);
+  var myquery = { text: comment["comment"]};
   collection.insertOne(myquery);
-  res("comment sent");
+  res.end("comment sent");
 })
