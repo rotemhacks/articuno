@@ -11,8 +11,11 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
+import { ActiveUser } from "../contexts/contexts";
 
 export default function EditProfile() {
+  const { user, setUser } = React.useContext(ActiveUser);
+
   return (
     <Flex align="center" justify="center" id="editProfile">
       <Box>
@@ -30,17 +33,7 @@ export default function EditProfile() {
                   type="text"
                   name="firstName"
                   placeholder="First Name"
-                  //   value={user.firstname}
-                />
-              </FormControl>
-
-              <FormControl isRequired>
-                <FormLabel>Last Name</FormLabel>
-                <Input
-                  type="text"
-                  name="lastName"
-                  placeholder="Last Name"
-                  //   value={user.lastname}
+                  defaultValue={user.firstname}
                 />
               </FormControl>
 
@@ -50,7 +43,7 @@ export default function EditProfile() {
                   type="email"
                   name="email"
                   placeholder="Email"
-                  //   value={user.email}
+                  defaultValue={user.email}
                 />
               </FormControl>
 
@@ -63,7 +56,7 @@ export default function EditProfile() {
                   rows={5}
                   resize="none"
                   maxLength={140}
-                  //   value={user.bio}
+                  defaultValue={user.bio}
                 />
               </FormControl>
 
