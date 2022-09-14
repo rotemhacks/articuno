@@ -20,7 +20,6 @@ const Subs = () => {
     },
     {
       onSuccess: (data) => {
-        console.log(data);
         setPosts(data);
       },
       enabled: user.subscriptions.length > 0,
