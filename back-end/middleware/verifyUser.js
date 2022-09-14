@@ -6,7 +6,8 @@ module.exports = async function (req, res, next) {
 
   try {
     const userId = verify(accessToken, process.env.SECRET).id;
-    const { password, ...user } = (await User.findById(userId)) ?? {};
+    const user = (await User.findById(userId)) ?? {};
+    delete user.password;
 
     if (!user) {
       throw {
@@ -14,7 +15,6 @@ module.exports = async function (req, res, next) {
         message: "you must be a user to access this endpoint",
       };
     }
-
     req.user = user;
     next();
   } catch (err) {

@@ -7,7 +7,7 @@ const PostList = ({ posts }) => {
     <Wrap display="flex" justify="center">
       {posts &&
         posts.map((post) => (
-          <WrapItem key={post.id}>
+          <WrapItem key={post._id}>
             <PostCard post={post} />
           </WrapItem>
         ))}
