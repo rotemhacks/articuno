@@ -5,13 +5,11 @@ import {
   Stack,
   Text,
   Image,
-  Flex,
   VStack,
   Button,
   Heading,
   SimpleGrid,
   StackDivider,
-  useColorModeValue,
   List,
   ListItem,
   Spinner,
@@ -70,11 +68,7 @@ export default function SinglePost() {
               >
                 {post.description}
               </Heading>
-              <Text
-                color={useColorModeValue("gray.900", "gray.400")}
-                fontWeight={300}
-                fontSize={"2xl"}
-              >
+              <Text color={"gray.400"} fontWeight={300} fontSize={"2xl"}>
                 {post.author}
               </Text>
             </Box>
@@ -82,11 +76,7 @@ export default function SinglePost() {
             <Stack
               spacing={{ base: 4, sm: 6 }}
               direction={"column"}
-              divider={
-                <StackDivider
-                  borderColor={useColorModeValue("gray.200", "gray.600")}
-                />
-              }
+              divider={<StackDivider borderColor={"gray.600"} />}
             >
               <VStack spacing={{ base: 4, sm: 6 }}>
                 <Text fontSize={"md"}>
@@ -99,7 +89,7 @@ export default function SinglePost() {
               <Box>
                 <Text
                   fontSize={{ base: "16px", lg: "18px" }}
-                  color={useColorModeValue("yellow.500", "yellow.300")}
+                  color={"yellow.500"}
                   fontWeight={"500"}
                   textTransform={"uppercase"}
                   mb={"4"}
@@ -138,8 +128,6 @@ export default function SinglePost() {
               mt={8}
               size={"xs"}
               py={"4"}
-              bg={useColorModeValue("gray.900", "gray.50")}
-              color={useColorModeValue("white", "gray.900")}
               textTransform={"uppercase"}
               _hover={{
                 transform: "translateY(2px)",
