@@ -28,14 +28,14 @@ const Upload = () => {
     formState: { errors, isSubmitting },
   } = useForm();
 
-  const { mutate } = useMutation(
+  const { mutate, isLoading } = useMutation(
     (data) => {
       return axios.post("/images", data);
     },
     {
       onSuccess: (response) => {
         const { _id } = response.data;
-        navigate(`post/${_id}`);
+        navigate(`/post/${_id}`);
       },
     }
   );
@@ -115,7 +115,7 @@ const Upload = () => {
           </FormControl>
           <HStack width="100%" mt={5}>
             <Spacer />
-            <Button isLoading={isSubmitting} type="submit">
+            <Button isLoading={isLoading} type="submit">
               Submit
             </Button>
           </HStack>

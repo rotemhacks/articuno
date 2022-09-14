@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   Container,
@@ -14,7 +15,9 @@ import {
   List,
   ListItem,
   Spinner,
+  Center,
 } from "@chakra-ui/react";
+import axios from "../utils/axiosClient";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 
@@ -44,9 +47,9 @@ export default function SinglePost() {
         <SimpleGrid
           columns={{ base: 1, lg: 2 }}
           spacing={{ base: 8, md: 10 }}
-          py={{ base: 18, md: 24 }}
+          // py={{ base: 18, md: 24 }}
         >
-          <Flex>
+          <Center>
             <Image
               rounded={"md"}
               alt={post.description}
@@ -54,9 +57,10 @@ export default function SinglePost() {
               fit={"cover"}
               align={"center"}
               w={"100%"}
-              h={{ base: "100%", sm: "400px", lg: "500px" }}
+              maxW={"650px"}
+              // h={{ base: "100%", sm: "400px", lg: "500px" }}
             />
-          </Flex>
+          </Center>
           <Stack spacing={{ base: 6, md: 10 }}>
             <Box as={"header"}>
               <Heading
