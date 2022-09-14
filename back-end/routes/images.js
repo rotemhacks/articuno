@@ -10,11 +10,13 @@ const {
   getFriendsPosts,
   getSubsPosts,
   getPostsByTags,
+  getFavPosts,
 } = require("../controllers/post");
 
 const router = express.Router();
 
 router.post("/", verifyUser, upload.single("image"), storeImage, addPost);
+router.get("/favs", verifyUser, getFavPosts);
 router.get("/friends", verifyUser, getFriendsPosts);
 router.get("/subs", verifyUser, getSubsPosts);
 router.get("/tags", verifyUser, getPostsByTags);
