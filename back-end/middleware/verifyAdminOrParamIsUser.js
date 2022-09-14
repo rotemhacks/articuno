@@ -1,5 +1,3 @@
-const { notify } = require("../routes/signup");
-
 module.exports = function (req, res, next) {
   const { user, params } = req;
 
