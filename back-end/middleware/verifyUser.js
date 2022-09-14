@@ -2,7 +2,7 @@ const { User } = require("../schemas/user.schema");
 const { verify } = require("jsonwebtoken");
 
 module.exports = async function (req, res, next) {
-  const accessToken = req.cookies.access_token;
+  const { access_token: accessToken } = req.cookies;
 
   try {
     const userId = verify(accessToken, process.env.SECRET).id;

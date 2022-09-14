@@ -24,6 +24,18 @@ exports.getPost = async function (req, res, next) {
   }
 };
 
+exports.getPosts = async function (req, res, next) {
+  try {
+    const showNsfw = !!req.user?.shownsfw;
+
+    const posts = await Post.find(showNsfw ? null : { nsfw: false });
+    res.send(posts);
+  } catch (err) {
+    err.status ??= 400;
+    next(err);
+  }
+};
+
 exports.getFriendsPosts = async function (req, res, next) {
   try {
     const posts = await Post.find({ author: { $in: req.user.friends } });
