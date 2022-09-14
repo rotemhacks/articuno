@@ -23,3 +23,13 @@ exports.getPost = async function (req, res, next) {
     next(err);
   }
 };
+
+exports.getFriendsPosts = async function (req, res, next) {
+  try {
+    const posts = await Post.find({ author: { $in: req.user.friends } });
+    res.send(posts);
+  } catch (err) {
+    err.status ??= 400;
+    next(err);
+  }
+};
