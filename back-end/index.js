@@ -7,6 +7,7 @@ const connectDB = require("./utils/connectDB");
 const login = require("./routes/login");
 const logout = require("./routes/logout");
 const signup = require("./routes/signup");
+const image = require("./routes/image");
 const images = require("./routes/images");
 const errorHandler = require("./middleware/errorHandler");
 
@@ -27,6 +28,7 @@ app.use(express.json());
 app.use("/signup", signup);
 app.use("/login", login);
 app.use("/logout", logout);
+app.use("/image", image);
 app.use("/images", images);
 app.use(errorHandler);
 

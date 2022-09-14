@@ -4,9 +4,9 @@ cloudinary.config({
   secure: true,
 });
 
-module.exports = async function (req, res, next) {
+module.exports = function (req, res, next) {
   try {
-    const result = await cloudinary.uploader
+    const result = cloudinary.uploader
       .upload_stream({ folder: `${req.user._id}/images` }, (error, result) => {
         if (error) {
           throw error;
