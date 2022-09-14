@@ -10,6 +10,7 @@ const signup = require("./routes/signup");
 const images = require("./routes/images");
 const fav = require("./routes/fav");
 const sub = require("./routes/sub");
+const blacklist = require("./routes/blacklist");
 const errorHandler = require("./middleware/errorHandler");
 
 const PORT = process.env.PORT || 2501;
@@ -32,6 +33,7 @@ app.use("/logout", logout);
 app.use("/images", images);
 app.use("/fav", fav);
 app.use("/sub", sub);
+app.use("/blacklist", blacklist);
 app.use(errorHandler);
 
 connectDB((err) => {

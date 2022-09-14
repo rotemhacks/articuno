@@ -29,3 +29,33 @@ exports.unsubscribe = async function (req, res, next) {
     next(err);
   }
 };
+
+exports.addToBlacklist = async function (req, res, next) {
+  const { tag } = req.params;
+
+  try {
+    await User.findByIdAndUpdate(req.user._id, {
+      blacklist: { $push: tag },
+    });
+
+    res.send({ tag });
+  } catch (err) {
+    err.status ??= 400;
+    next(err);
+  }
+};
+
+exports.removeFromBlacklist = async function (req, res, next) {
+  const { tag } = req.params;
+
+  try {
+    await User.findByIdAndUpdate(req.user._id, {
+      blacklist: { $pull: tag },
+    });
+
+    res.send({ tag });
+  } catch (err) {
+    err.status ??= 400;
+    next(err);
+  }
+};
