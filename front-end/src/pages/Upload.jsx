@@ -30,7 +30,7 @@ const Upload = () => {
 
   const { mutate } = useMutation(
     (data) => {
-      return axios.post("/login", data);
+      return axios.post("/images/upload", data);
     },
     {
       onSuccess: (response) => {
@@ -41,8 +41,8 @@ const Upload = () => {
   );
 
   const onSubmit = (data) => {
-    data.file = file;
     const formData = new FormData();
+    formData.append("image", file);
     for (const key in data) {
       formData.append(key, data[key]);
     }
@@ -66,9 +66,9 @@ const Upload = () => {
                 multipleFiles={false}
                 accept="image/*"
                 hideClearButton={true}
-                {...register("file", {
-                  required: "This is required",
-                })}
+                // {...register("file", {
+                //   required: "This is required",
+                // })}
                 // This should be through the theme later
                 focusBorderColor="brand.BlizzardBlue"
               />
