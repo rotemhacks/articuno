@@ -6,7 +6,6 @@ import {
   FormLabel,
   Heading,
   Input,
-  InputGroup,
   Stack,
   Textarea,
   VStack,
@@ -31,7 +30,7 @@ export default function EditProfile() {
                   type="text"
                   name="firstName"
                   placeholder="First Name"
-                  //   value={user.firstName}
+                  //   value={user.firstname}
                 />
               </FormControl>
 
@@ -41,7 +40,7 @@ export default function EditProfile() {
                   type="text"
                   name="lastName"
                   placeholder="Last Name"
-                  //   value={user.lastName}
+                  //   value={user.lastname}
                 />
               </FormControl>
 
