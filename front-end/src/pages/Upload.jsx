@@ -34,8 +34,8 @@ const Upload = () => {
     },
     {
       onSuccess: (response) => {
-        const { id } = response.data;
-        navigate(`post/${id}`);
+        const { _id } = response.data;
+        navigate(`post/${_id}`);
       },
     }
   );

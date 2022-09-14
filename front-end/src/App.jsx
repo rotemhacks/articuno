@@ -33,7 +33,7 @@ function App() {
           <Route path="/subs" element={<Subs />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/upload" element={<Upload />} />
-          <Route path="/posts/:id" element={<SinglePost />} />
+          <Route path="/post/:id" element={<SinglePost />} />
           <Route path="/profile/edit/:id" element={<EditProfile />} />
         </Route>
       </Routes>
