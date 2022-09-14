@@ -63,3 +63,33 @@ exports.getPostsByTags = async function (req, res, next) {
     next(err);
   }
 };
+
+exports.addToFavorites = async function (req, res, next) {
+  const { id } = req.params;
+
+  try {
+    await User.findByIdAndUpdate(req.user._id, {
+      favorites: { $push: id },
+    });
+
+    res.send({ postId: id });
+  } catch (err) {
+    err.status ??= 400;
+    next(err);
+  }
+};
+
+exports.removeFromFavorites = async function (req, res, next) {
+  const { id } = req.params;
+
+  try {
+    await User.findByIdAndUpdate(req.user._id, {
+      favorites: { $pull: id },
+    });
+
+    res.send({ postId: id });
+  } catch (err) {
+    err.status ??= 400;
+    next(err);
+  }
+};

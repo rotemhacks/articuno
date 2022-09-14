@@ -8,6 +8,7 @@ const login = require("./routes/login");
 const logout = require("./routes/logout");
 const signup = require("./routes/signup");
 const images = require("./routes/images");
+const fav = require("./routes/fav");
 const sub = require("./routes/sub");
 const errorHandler = require("./middleware/errorHandler");
 
@@ -29,6 +30,7 @@ app.use("/signup", signup);
 app.use("/login", login);
 app.use("/logout", logout);
 app.use("/images", images);
+app.use("/fav", fav);
 app.use("/sub", sub);
 app.use(errorHandler);
 
