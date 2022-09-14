@@ -33,3 +33,13 @@ exports.getFriendsPosts = async function (req, res, next) {
     next(err);
   }
 };
+
+exports.getSubsPosts = async function (req, res, next) {
+  try {
+    const posts = await Post.find({ tags: { $in: req.user.subscriptions } });
+    res.send(posts);
+  } catch (err) {
+    err.status ??= 400;
+    next(err);
+  }
+};
