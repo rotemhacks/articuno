@@ -43,3 +43,13 @@ exports.getSubsPosts = async function (req, res, next) {
     next(err);
   }
 };
+
+exports.getPostsByTags = async function (req, res, next) {
+  try {
+    const posts = await Post.find({ tags: { $in: req.body.tags } });
+    res.send(posts);
+  } catch (err) {
+    err.status ??= 400;
+    next(err);
+  }
+};
