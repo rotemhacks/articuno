@@ -37,6 +37,7 @@ const Profile = () => {
             />
             <VStack>
               <Text>{`${user.firstname} ${user.lastname || ""}`}</Text>
+              <Text>{user.email}</Text>
               {/* Name, email, bio, showing NSFW, subscribed tags, blacklisted tags */}
             </VStack>
           </SimpleGrid>
