@@ -3,6 +3,7 @@ import { Heading, Spinner, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 import { ActiveUser } from "../contexts/contexts";
 import axios from "../utils/axiosClient";
+import PostList from "../components/posts/PostList";
 
 const Favorites = () => {
   const { user } = React.useContext(ActiveUser);

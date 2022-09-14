@@ -6,13 +6,13 @@ import React from "react";
 export default function PostCardButtons({ onLike, isLiked }) {
   return (
     <HStack w="100%">
+      <Spacer />
       <IconButton
         aria-label="like post"
         icon={isLiked ? <AiFillHeart /> : <AiOutlineHeart />}
         onClick={onLike}
       />
       <IconButton aria-label="leave a comment" icon={<FaComment />} />
-      <Spacer />
     </HStack>
   );
 }

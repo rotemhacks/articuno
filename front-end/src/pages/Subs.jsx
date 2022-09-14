@@ -1,9 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { Heading, Spinner, Text, VStack } from "@chakra-ui/react";
+import { Heading, Spinner, Tag, Text, VStack } from "@chakra-ui/react";
 import axios from "../utils/axiosClient";
 import { ActiveUser } from "../contexts/contexts";
+import PostList from "../components/posts/PostList";
 
 const Subs = () => {
   const { user } = React.useContext(ActiveUser);
@@ -28,8 +29,16 @@ const Subs = () => {
   return (
     <VStack>
       <Heading>Subscribed tags</Heading>
+      {user && user.subscriptions.length > 0 && (
+        <Text>
+          You are subscribed to:{" "}
+          {user.subscriptions.map((tag) => (
+            <Tag key={tag}>{tag}</Tag>
+          ))}
+        </Text>
+      )}
       {user && user.subscriptions > 0 && isLoading && <Spinner />}
-      {isSuccess && posts.length > 0 && <PostList posts={posts} />}
+      {isSuccess && posts && posts.length > 0 && <PostList posts={posts} />}
       {user && user.subscriptions.length === 0 && (
         <>
           <Text as="i">You aren't subscribed to any tags.</Text>

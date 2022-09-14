@@ -37,7 +37,7 @@ function App() {
         </Route>
         <Route path="/post/:id" element={<SinglePost />} />
       </Routes>
-      <Box height="2rem" />
+      <Box height="4rem" />
       <Nav />
     </VStack>
   );

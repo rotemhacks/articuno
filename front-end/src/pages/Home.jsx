@@ -12,7 +12,7 @@ const Home = () => {
   const { data, isLoading, isSuccess } = useQuery(
     ["mainfeed"],
     async () => {
-      const result = await axios.get("/images/all");
+      const result = await axios.get("/images");
       return result.data;
     },
     {
@@ -24,9 +24,9 @@ const Home = () => {
 
   return (
     <VStack>
+      <Heading>Articuno</Heading>
       {!user && (
         <VStack>
-          <Heading>Articuno</Heading>
           <Image
             src="https://res.cloudinary.com/planetariumfish/image/upload/v1662482896/pokemon-articuno_at8isl.gif"
             alt="Articuno!"

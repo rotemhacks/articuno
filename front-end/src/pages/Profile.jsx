@@ -6,6 +6,8 @@ import {
   SimpleGrid,
   Text,
   VStack,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 import React from "react";
 import { ActiveUser } from "../contexts/contexts";
@@ -13,6 +15,7 @@ import axios from "../utils/axiosClient";
 import { Link } from "react-router-dom";
 import PostList from "../components/posts/PostList";
 import { useQuery } from "@tanstack/react-query";
+import Thumbnail from "../components/posts/Thumbnail";
 
 const Profile = () => {
   const { user, setUser } = React.useContext(ActiveUser);
@@ -22,7 +25,7 @@ const Profile = () => {
     ["ownposts"],
     async () => {
       // check routes
-      const result = await axios.get("/images/user/");
+      const result = await axios.get("/images/own");
       return result.data;
     },
     {
@@ -73,7 +76,13 @@ const Profile = () => {
           <Button onClick={handleLogout}>Logout</Button>
           <VStack>
             {posts.length > 0 ? (
-              <PostList posts={posts} />
+              <Wrap>
+                {posts.map((post) => {
+                  <WrapItem key={post._id}>
+                    <Thumbnail post={post} />
+                  </WrapItem>;
+                })}
+              </Wrap>
             ) : (
               <Text as="i">No posts to display</Text>
             )}
