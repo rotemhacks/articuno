@@ -36,6 +36,19 @@ app.get('/image/:id', async (req, res)=>{
 
 app.post('/image/:id', async (req, res)=>{
   let id = req.params.id;
+
+  await client.db("artstuff").createCollection(req.params.id, function (err, res) {
+    if (err) {
+        //console.log(err);
+        if (err.codeName =="NamespaceExists") {
+            console.log("Already Exists Collection  : " + req.params.id + "");
+            return;
+        }
+    }
+    console.log("Collection created! : "+req.params.id+"");
+
+  });
+
   const collection = client.db("artstuff").collection(req.params.id);
   let comment = req.body;
   console.log(comment);
