@@ -26,7 +26,7 @@ const Subs = () => {
 
   return (
     <VStack>
-      <Heading>Posts from subscribed tags</Heading>
+      <Heading>Subscribed tags</Heading>
       {isLoading && <Spinner />}
       {isSuccess && posts.length > 0 && <PostList posts={posts} />}
       {posts && posts.length === 0 && (

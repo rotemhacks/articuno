@@ -21,6 +21,7 @@ const SignupForm = () => {
   const {
     handleSubmit,
     register,
+    getValues,
     formState: { errors, isSubmitting },
   } = useForm();
 
@@ -101,8 +102,10 @@ const SignupForm = () => {
             {...register("repassword", {
               required: "This is required",
               minLength: { value: 4, message: "Minimum length should be 4" },
-              validate: (repassword) =>
-                repassword === password || "Passwords must match",
+              validate: (repassword) => {
+                const password = getValues();
+                repassword === password || "Passwords must match";
+              },
             })}
           />
           <FormErrorMessage>
