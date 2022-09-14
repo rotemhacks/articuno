@@ -9,7 +9,10 @@ module.exports = async function (req, res, next) {
     const user = await User.findById(userId);
 
     if (!user) {
-      throw { status: 401, message: "you need to be a user to access this" };
+      throw {
+        status: 401,
+        message: "you must be a user to access this endpoint",
+      };
     }
 
     req.user = user;
