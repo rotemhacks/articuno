@@ -26,14 +26,11 @@ const LoginForm = () => {
 
   const { mutate } = useMutation(
     (data) => {
-<<<<<<< HEAD
       console.log(import.meta.env.VITE_BASE_URL);
       return axios.post("/login", data, {
         withCredentials: true,
       });
-=======
       return axios.post("/login", data);
->>>>>>> 0a69bfc9fea1463c6bc55132bc0b178b9d291718
     },
     {
       onSuccess: (response) => {
